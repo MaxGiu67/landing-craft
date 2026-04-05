@@ -122,12 +122,12 @@ bash install.sh --uninstall  # rimuovi skill
 Il plugin funziona da solo, ma queste skill aggiungono conoscenza extra:
 
 ```bash
-npx skills add greensock/gsap-skills                      # 8 skill GSAP ufficiali
-npx skills add pbakaus/impeccable                         # Design system + /animate /audit /polish
-npx skills add jezweb/claude-skills --skill motion        # Motion.dev 29+ pattern
-npx skills add secondsky/claude-skills --skill tailwind-v4-shadcn  # Tailwind v4
-npx skills add vercel-labs/agent-skills --skill react-best-practices
-npx skills add vercel-labs/agent-skills --skill web-design-guidelines
+npx skills add greensock/gsap-skills                                        # 8 skill GSAP ufficiali
+npx skills add pbakaus/impeccable                                           # Design system + /animate /audit /polish
+npx skills add secondsky/claude-skills --skill tailwind-v4-shadcn           # Tailwind v4
+npx skills add vercel-labs/agent-skills --skill vercel-react-best-practices # React best practices
+npx skills add vercel-labs/agent-skills --skill web-design-guidelines       # Web design
+npx skills add vercel-labs/agent-skills --skill vercel-react-view-transitions # View Transitions
 ```
 
 Oppure installa tutto con: `bash install.sh --full`
@@ -139,8 +139,8 @@ Per QA avanzata e deploy integrato:
 ```bash
 claude mcp add --scope user playwright npx @playwright/mcp@latest    # Visual testing
 claude mcp add lighthouse npx @danielsogl/lighthouse-mcp@latest      # Performance
-claude mcp add a11y npx -y a11y-mcp-server                          # Accessibility
-claude mcp add screenshot-website npx -y @just-every/mcp-screenshot-website-fast
+claude mcp add a11y -- npx -y a11y-mcp-server                       # Accessibility
+claude mcp add screenshot-website -- npx -y @just-every/mcp-screenshot-website-fast
 claude plugin install figma@claude-plugins-official                   # Figma → code
 ```
 

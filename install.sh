@@ -72,7 +72,7 @@ echo "  ║   landing-craft — Installer v1.0.0    ║"
 echo "  ║   Landing Page Animate per Claude Code ║"
 echo "  ╚═══════════════════════════════════════╝"
 echo ""
-echo "  Installazione 7 skill (modalita: $MODE)..."
+echo "  Installazione 8 skill (modalita: $MODE)..."
 echo ""
 
 for skill in "${SKILLS[@]}"; do
@@ -93,7 +93,7 @@ for skill in "${SKILLS[@]}"; do
 done
 
 echo ""
-echo "  ✅ 7 skill installate!"
+echo "  ✅ 8 skill installate!"
 echo ""
 
 # ── Skill esterne (opzionali) ──
@@ -108,17 +108,17 @@ if [ "$INSTALL_EXTERNAL" = true ]; then
     echo "  Installazione Impeccable (20 commands)..."
     npx skills add pbakaus/impeccable 2>/dev/null && echo "  ✓ Impeccable installato" || echo "  ⚠ Impeccable: errore (installa manualmente: npx skills add pbakaus/impeccable)"
 
-    echo "  Installazione Motion skill..."
-    npx skills add jezweb/claude-skills --skill motion 2>/dev/null && echo "  ✓ Motion skill installata" || echo "  ⚠ Motion: errore (installa manualmente: npx skills add jezweb/claude-skills --skill motion)"
-
     echo "  Installazione Tailwind v4 + shadcn..."
-    npx skills add secondsky/claude-skills --skill tailwind-v4-shadcn 2>/dev/null && echo "  ✓ Tailwind v4 + shadcn installati" || echo "  ⚠ Tailwind: errore"
+    npx skills add secondsky/claude-skills --skill tailwind-v4-shadcn 2>/dev/null && echo "  ✓ Tailwind v4 + shadcn installati" || echo "  ⚠ Tailwind: errore (npx skills add secondsky/claude-skills --skill tailwind-v4-shadcn)"
 
-    echo "  Installazione React best practices..."
-    npx skills add vercel-labs/agent-skills --skill react-best-practices 2>/dev/null && echo "  ✓ React best practices installate" || echo "  ⚠ React BP: errore"
+    echo "  Installazione React best practices (Vercel)..."
+    npx skills add vercel-labs/agent-skills --skill vercel-react-best-practices 2>/dev/null && echo "  ✓ React best practices installate" || echo "  ⚠ React BP: errore (npx skills add vercel-labs/agent-skills --skill vercel-react-best-practices)"
 
     echo "  Installazione Web design guidelines..."
-    npx skills add vercel-labs/agent-skills --skill web-design-guidelines 2>/dev/null && echo "  ✓ Web design guidelines installate" || echo "  ⚠ Web design: errore"
+    npx skills add vercel-labs/agent-skills --skill web-design-guidelines 2>/dev/null && echo "  ✓ Web design guidelines installate" || echo "  ⚠ Web design: errore (npx skills add vercel-labs/agent-skills --skill web-design-guidelines)"
+
+    echo "  Installazione View Transitions..."
+    npx skills add vercel-labs/agent-skills --skill vercel-react-view-transitions 2>/dev/null && echo "  ✓ View transitions installate" || echo "  ⚠ View transitions: errore"
   else
     echo "  ⚠ npx non trovato — installa Node.js per le skill esterne"
   fi
@@ -139,10 +139,10 @@ if [ "$INSTALL_MCP" = true ]; then
     claude mcp add lighthouse npx @danielsogl/lighthouse-mcp@latest 2>/dev/null && echo "  ✓ Lighthouse MCP installato" || echo "  ⚠ Lighthouse MCP: errore"
 
     echo "  Installazione A11y MCP..."
-    claude mcp add a11y npx -y a11y-mcp-server 2>/dev/null && echo "  ✓ A11y MCP installato" || echo "  ⚠ A11y MCP: errore"
+    claude mcp add a11y -- npx -y a11y-mcp-server 2>/dev/null && echo "  ✓ A11y MCP installato" || echo "  ⚠ A11y MCP: errore (claude mcp add a11y -- npx -y a11y-mcp-server)"
 
     echo "  Installazione Screenshot MCP..."
-    claude mcp add screenshot-website npx -y @just-every/mcp-screenshot-website-fast 2>/dev/null && echo "  ✓ Screenshot MCP installato" || echo "  ⚠ Screenshot MCP: errore"
+    claude mcp add screenshot-website -- npx -y @just-every/mcp-screenshot-website-fast 2>/dev/null && echo "  ✓ Screenshot MCP installato" || echo "  ⚠ Screenshot MCP: errore (claude mcp add screenshot-website -- npx -y @just-every/mcp-screenshot-website-fast)"
 
     echo "  Installazione GSAP MCP Server..."
     claude mcp add-json gsap-master '{"command":"npx","args":["bruzethegreat-gsap-master-mcp-server@latest"]}' 2>/dev/null && echo "  ✓ GSAP MCP installato" || echo "  ⚠ GSAP MCP: errore"
