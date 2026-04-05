@@ -1,0 +1,221 @@
+# Template Sezioni Landing Page
+
+Reference per le skill landing-craft. Template per ogni tipo di sezione con struttura, animazione e varianti.
+
+---
+
+## Hero Section
+
+### Variante: Minimal
+```
+┌─────────────────────────────────────────┐
+│                                         │
+│          [Badge/Tag animato]            │
+│                                         │
+│     Heading H1 grande, fade-up          │
+│     con SplitText per bold              │
+│                                         │
+│     Sottotitolo p, fade-up delay        │
+│                                         │
+│     [CTA primario] [CTA secondario]     │
+│         scale 0.95→1 + shadow           │
+│                                         │
+│     Social proof (loghi/avatar)         │
+│         stagger fade-in                 │
+│                                         │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: Timeline GSAP — title (SplitText chars) → subtitle (fade-up) → CTA (scale) → social proof (stagger)
+- **Durata totale**: 1.2-1.5s
+- **Mobile**: stack verticale, font ridotto, CTA full-width
+
+### Variante: Split Screen
+```
+┌──────────────────┬──────────────────────┐
+│                  │                      │
+│  Heading H1      │    Immagine/Video    │
+│  fade-left       │    fade-right        │
+│                  │    o parallax        │
+│  Sottotitolo     │                      │
+│                  │                      │
+│  [CTA]           │                      │
+│                  │                      │
+└──────────────────┴──────────────────────┘
+```
+- **Animazione**: contenuto da sinistra (x: -60), immagine da destra (x: 60), simultanee
+- **Mobile**: stack verticale, immagine sopra testo
+
+### Variante: Video Background
+```
+┌─────────────────────────────────────────┐
+│  ▓▓▓▓▓▓▓▓▓ VIDEO BG ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
+│  ▓                                   ▓  │
+│  ▓     Overlay scuro 60%            ▓  │
+│  ▓     Heading bianco, fade-up      ▓  │
+│  ▓     [CTA]                        ▓  │
+│  ▓                                   ▓  │
+│  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
+└─────────────────────────────────────────┘
+```
+- **Video**: lazy load, autoplay muted loop, poster image per LCP
+- **Mobile**: immagine statica (no video per performance)
+
+### Variante: Bold/Statement
+```
+┌─────────────────────────────────────────┐
+│                                         │
+│                                         │
+│   HEADING ENORME (8-12vw)              │
+│   SplitText char-by-char               │
+│   con rotateX e stagger 0.02s          │
+│                                         │
+│   Sottotitolo minimale                  │
+│                                         │
+│                                         │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: SplitText per carattere con rotateX -90→0, stagger 0.02s, ease back.out
+- **Impatto**: il testo e l'unico elemento, nessuna distrazione
+
+---
+
+## Features Section
+
+### Variante: Grid Cards
+```
+┌─────────────────────────────────────────┐
+│  Section heading (scroll reveal)        │
+│                                         │
+│  ┌──────┐  ┌──────┐  ┌──────┐         │
+│  │ Icon │  │ Icon │  │ Icon │  stagger │
+│  │Title │  │Title │  │Title │  0.1s    │
+│  │ Desc │  │ Desc │  │ Desc │          │
+│  └──────┘  └──────┘  └──────┘         │
+│                                         │
+│  ┌──────┐  ┌──────┐  ┌──────┐         │
+│  │ Icon │  │ Icon │  │ Icon │          │
+│  │Title │  │Title │  │Title │          │
+│  │ Desc │  │ Desc │  │ Desc │          │
+│  └──────┘  └──────┘  └──────┘         │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: Motion useInView, stagger 0.1s, y: 40→0, opacity: 0→1
+- **Hover**: scale 1.02 + shadow elevation
+- **Mobile**: 1 colonna, swipe orizzontale opzionale
+
+### Variante: Feature Showcase (alternating)
+```
+┌─────────────────────────────────────────┐
+│  ┌────────────┐  ┌──────────────────┐  │
+│  │  Screenshot │  │  Titolo feature  │  │
+│  │  parallax   │  │  Descrizione     │  │
+│  │  da sinistra│  │  Bullet points   │  │
+│  └────────────┘  └──────────────────┘  │
+│                                         │
+│  ┌──────────────────┐  ┌────────────┐  │
+│  │  Titolo feature  │  │  Screenshot │  │
+│  │  Descrizione     │  │  parallax   │  │
+│  │  Bullet points   │  │  da destra  │  │
+│  └──────────────────┘  └────────────┘  │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: GSAP ScrollTrigger, immagine da sinistra/destra alternata, testo fade-up
+- **Mobile**: stack verticale, immagine sempre sopra testo
+
+---
+
+## Testimonials Section
+
+### Variante: Carousel
+```
+┌─────────────────────────────────────────┐
+│  "Quote del cliente..."                 │
+│                                         │
+│  [Avatar] Nome — Ruolo, Azienda        │
+│                                         │
+│  ← [dot] [DOT] [dot] →                 │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: AnimatePresence per transizione tra quote, fade + slide orizzontale
+
+### Variante: Grid
+```
+┌─────────────────────────────────────────┐
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐  │
+│  │ ★★★★★  │ │ ★★★★★  │ │ ★★★★★  │  │
+│  │ "Quote" │ │ "Quote" │ │ "Quote" │  │
+│  │ —Nome   │ │ —Nome   │ │ —Nome   │  │
+│  └─────────┘ └─────────┘ └─────────┘  │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: stagger reveal on scroll, hover elevation
+
+---
+
+## Stats/Numbers Section
+
+```
+┌─────────────────────────────────────────┐
+│                                         │
+│   99.9%        10K+        50ms         │
+│   Uptime       Users       Response     │
+│                                         │
+│   Counter animation on scroll           │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: GSAP counter da 0 al valore target con ScrollTrigger
+- **Pattern**: `gsap.to(counter, { innerText: 9999, snap: { innerText: 1 }, duration: 2 })`
+
+---
+
+## Pricing Section
+
+```
+┌─────────────────────────────────────────┐
+│  [Monthly] [Yearly -20%]  toggle        │
+│                                         │
+│  ┌────────┐ ┌─────────┐ ┌────────┐    │
+│  │ Basic  │ │★ Pro ★  │ │Enterprise│   │
+│  │ $9/mo  │ │ $29/mo  │ │ Custom  │    │
+│  │ feat1  │ │ feat1   │ │ feat1   │    │
+│  │ feat2  │ │ feat2   │ │ feat2   │    │
+│  │ [CTA]  │ │ [CTA]   │ │ [CTA]  │    │
+│  └────────┘ └─────────┘ └────────┘    │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: stagger cards, toggle prezzo con AnimatePresence (number morph)
+- **Pro card**: scale 1.05, border highlight, badge "Popular"
+
+---
+
+## CTA / Final Section
+
+```
+┌─────────────────────────────────────────┐
+│  ▓▓▓▓▓▓▓▓▓ GRADIENT BG ▓▓▓▓▓▓▓▓▓▓▓▓  │
+│  ▓                                   ▓  │
+│  ▓  Heading compelling, fade-up      ▓  │
+│  ▓  Sottotitolo                      ▓  │
+│  ▓  [CTA grande] [CTA secondario]   ▓  │
+│  ▓                                   ▓  │
+│  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: scroll reveal, CTA con pulse/glow animation continua
+- **Pattern**: `gsap.to(".cta", { boxShadow: "0 0 20px rgba(59,130,246,0.5)", repeat: -1, yoyo: true, duration: 1.5 })`
+
+---
+
+## Footer
+
+```
+┌─────────────────────────────────────────┐
+│  Logo    Link1  Link2  Link3  Social   │
+│  Desc    Link4  Link5  Link6  Icons    │
+│          Link7  Link8                   │
+│                                         │
+│  © 2026 Company — Privacy — Terms      │
+└─────────────────────────────────────────┘
+```
+- **Animazione**: fade-in on scroll, nessuna animazione complessa (performance)
+- **Link hover**: underline slide-in con `background-size` animation

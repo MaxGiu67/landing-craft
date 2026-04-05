@@ -1,0 +1,29 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "landing-craft",
+  "owner": {
+    "name": "MaxGiu67"
+  },
+  "plugins": [
+    {
+      "name": "landing-craft",
+      "source": "./",
+      "description": "Otto skill per creare landing page animate professionali. GSAP + Motion.dev + Tailwind CSS, QA con Lighthouse e A11y, deploy su Vercel/Netlify.",
+      "version": "1.0.0",
+      "author": { "name": "MaxGiu67" },
+      "license": "MIT",
+      "category": "development",
+      "tags": ["landing-page", "animation", "gsap", "motion", "react", "tailwind", "performance"],
+      "skills": [
+        "./skills/lp-init",
+        "./skills/lp-hero",
+        "./skills/lp-section",
+        "./skills/lp-animate",
+        "./skills/lp-qa",
+        "./skills/lp-deploy",
+        "./skills/lp-status",
+        "./skills/lp-methodology"
+      ]
+    }
+  ]
+}
